@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "./dashboard.module.css";
+import styles from "./dashboard.module.scss";
 
 const Dashboard: NextPage = () => {
   const logoStyles = {
@@ -22,7 +22,7 @@ const Dashboard: NextPage = () => {
         <a href="index.html">
           <img
             style={logoStyles}
-            src="./images/noteshar-logo.svg"
+            src="/noteshar-logo.svg"
             alt="NoteShar Logo"
           />
         </a>

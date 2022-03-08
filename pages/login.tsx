@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "./login.module.css";
+import styles from "./login.module.scss";
 
 const Login: NextPage = () => {
   const logoStyles = {
