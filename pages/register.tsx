@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "./register.module.css";
+import styles from "./register.module.scss";
+
+import Appbar from "../components/Appbar/Appbar";
 
 const Register: NextPage = () => {
   const logoStyles = {
@@ -17,17 +19,7 @@ const Register: NextPage = () => {
       </Head>
 
       {/* Appbar */}
-      <header className="appbar page__header">
-        {/* Logo */}
-        <a href="/">
-          <img
-            style={logoStyles}
-            src="/noteshar-logo.svg"
-            alt="NoteShar Logo"
-          />
-        </a>
-        <span className="appbar__app-name">NoteShar</span>
-      </header>
+      <Appbar />
 
       <main className="page__main">
         <h1 className="title">Register to NoteShar</h1>
