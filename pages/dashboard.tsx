@@ -2,6 +2,8 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "./dashboard.module.scss";
 
+import Appbar from "../components/Appbar/Appbar";
+
 const Dashboard: NextPage = () => {
   const logoStyles = {
     width: "56px",
@@ -17,28 +19,7 @@ const Dashboard: NextPage = () => {
       </Head>
 
       {/* Appbar */}
-      <header className="appbar">
-        {/* Logo */}
-        <a href="index.html">
-          <img
-            style={logoStyles}
-            src="/noteshar-logo.svg"
-            alt="NoteShar Logo"
-          />
-        </a>
-        <span className="appbar__app-name">NoteShar</span>
-        <div>
-          <a href="login.html">Login</a>
-          <div>
-            <span>UserName</span>
-            <div>
-              <a href="profile.html">Profile</a>
-              <a href="dashboard.html">Dashboard</a>
-              <a href="login.html">Logout</a>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Appbar />
 
       <main className="main">
         <h1 className="title">Username Dashboard</h1>

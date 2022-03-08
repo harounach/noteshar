@@ -2,6 +2,8 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "./Home.module.scss";
 
+import Appbar from "../components/Appbar/Appbar";
+
 const Home: NextPage = () => {
   const logoStyles = {
     width: "56px",
@@ -19,36 +21,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* Appbar */}
-      <header className="appbar page__header">
-        {/* Logo */}
-        <a href="/">
-          <img
-            style={logoStyles}
-            src="/noteshar-logo.svg"
-            alt="NoteShar Logo"
-          />
-        </a>
-        <span className="appbar__app-name">NoteShar</span>
-        <div>
-          <a className="btn" href="login.html">
-            Login
-          </a>
-          <div className="appbar__menu menu">
-            <span className="menu__title">UserName</span>
-            <div>
-              <a className="menu__item" href="/profile">
-                Profile
-              </a>
-              <a className="menu__item" href="/dashboard">
-                Dashboard
-              </a>
-              <a className="menu__item" href="/logout">
-                Logout
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Appbar />
       <main className="page__main">
         <h1 className="title">Create and share notes about your life</h1>
         <div className="notes">
