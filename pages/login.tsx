@@ -60,7 +60,7 @@ const Login: NextPage = () => {
           <div className="form__msg-wrapper">
             <p className="form__msg">
               Don't have an account?
-              <a className="link" href="register.html">
+              <a className="link" href="/register">
                 Register
               </a>
             </p>
