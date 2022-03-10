@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import classNames from "classnames";
 import styles from "./Appbar.module.scss";
 
@@ -7,35 +8,39 @@ interface Props {
   customClasses?: string;
 }
 
-const logoStyles = {
-  width: "56px",
-  height: "56px",
-};
-
 const Appbar: React.FC<Props> = ({ isLoggedIn, customClasses }) => {
   return (
     <header className={classNames(styles.appbar, customClasses)}>
       {/* Logo */}
-      <a href="/" className="appbar__logo">
-        <img style={logoStyles} src="/noteshar-logo.svg" alt="NoteShar Logo" />
-      </a>
-      <span className="appbar__app-name">NoteShar</span>
-      <div>
+      <Link href="/">
+        <a className={classNames(styles.appbar__logo)}>
+          <img src="/noteshar-logo.svg" alt="NoteShar Logo" />
+        </a>
+      </Link>
+
+      <span className={classNames(styles["appbar__app-name"])}>NoteShar</span>
+      <div className={classNames(styles.appbar__controls)}>
         <a className="btn" href="/login">
           Login
         </a>
-        <div className="appbar__menu">
-          <span className="appbar__menu-title">UserName</span>
-          <div>
-            <a className="appbar__menu-item" href="/profile">
-              Profile
-            </a>
-            <a className="appbar__menu-item" href="/dashboard">
-              Dashboard
-            </a>
-            <a className="appbar__menu-item" href="/logout">
-              Logout
-            </a>
+        <div className={classNames(styles.appbar__menu)}>
+          <span className={classNames(styles["appbar__menu-title"])}>
+            UserName
+          </span>
+          <div className={classNames(styles["appbar__menu-dropdown"])}>
+            <Link href="/profile">
+              <a className={classNames(styles["appbar__menu-item"])}>Profile</a>
+            </Link>
+
+            <Link href="/dashboard">
+              <a className={classNames(styles["appbar__menu-item"])}>
+                Dashboard
+              </a>
+            </Link>
+
+            <Link href="/login">
+              <a className={classNames(styles["appbar__menu-item"])}>Logout</a>
+            </Link>
           </div>
         </div>
       </div>
