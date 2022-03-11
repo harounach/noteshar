@@ -3,6 +3,8 @@ import Link from "next/link";
 import classNames from "classnames";
 import styles from "./Appbar.module.scss";
 
+import Button from "../Button/Button";
+
 interface Props {
   isLoggedIn?: boolean;
   customClasses?: string;
@@ -20,9 +22,7 @@ const Appbar: React.FC<Props> = ({ isLoggedIn, customClasses }) => {
 
       <span className={classNames(styles["appbar__app-name"])}>NoteShar</span>
       <div className={classNames(styles.appbar__controls)}>
-        <a className="btn" href="/login">
-          Login
-        </a>
+        <Button url="/login">Login</Button>
         <div className={classNames(styles.appbar__menu)}>
           <span className={classNames(styles["appbar__menu-title"])}>
             UserName

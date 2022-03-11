@@ -1,0 +1,44 @@
+@use "../../styles/abstracts/variables" as vars;
+
+// btn
+.btn {
+  height: 2.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: #fff;
+  border: none;
+  background-color: vars.$primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  // btn--icon-btn
+  &--icon-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: transparent;
+  }
+
+  // btn--danger
+  &--danger {
+    background-color: vars.$secondary;
+    color: #000;
+  }
+
+  // btn--cancel
+  &--cancel {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid vars.$secondary;
+  }
+
+  // btn__icon
+  &__icon {
+    font-size: 1.25rem;
+    color: #000;
+  }
+}
