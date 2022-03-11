@@ -1,17 +1,15 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
+import classNames from "classnames";
 import styles from "./login.module.scss";
 
 import Appbar from "../components/Appbar/Appbar";
+import Button from "../components/Button/Button";
 
 const Login: NextPage = () => {
-  const logoStyles = {
-    width: "56px",
-    height: "56px",
-  };
-
   return (
-    <div className={styles.container}>
+    <div className={classNames(styles.page)}>
       <Head>
         <title>Login to NoteShar</title>
         <meta name="description" content="Login to NoteShar" />
@@ -19,49 +17,63 @@ const Login: NextPage = () => {
       </Head>
 
       {/* Appbar */}
-      <Appbar />
+      <Appbar customClasses={classNames(styles.page__header, "container")} />
 
-      <main className="page__main">
-        <h1 className="title">Login to NoteShar</h1>
-        <form className="form">
-          <div className="form__title-wrapper">
-            <h2 className="form__title">Login</h2>
+      <main className={classNames(styles.page__main, "main")}>
+        <div className="container">
+          <h1 className="title">Login to NoteShar</h1>
+          <div className={classNames(styles.page__center)}>
+            <form className="form">
+              <div className="form__section">
+                <h2 className="form__title">Login</h2>
+              </div>
+              <div className="form__section input-control">
+                <label htmlFor="email" className="input-control__label">
+                  Email
+                </label>
+                <input
+                  className="input-control__input"
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                />
+                <p className="input-control__error">Email Error</p>
+              </div>
+              <div className="form__section input-control">
+                <label htmlFor="password" className="input-control__label">
+                  Password
+                </label>
+                <input
+                  className="input-control__input"
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                />
+                <p className="input-control__error">Password Error</p>
+              </div>
+              <div className="form__section">
+                <Button customClasses={classNames(styles.form__submit)}>
+                  Login
+                </Button>
+              </div>
+              <div className="form__section">
+                <p className="form__msg">
+                  Don't have an account?{" "}
+                  <Link href="/register">
+                    <a>Register</a>
+                  </Link>
+                </p>
+              </div>
+            </form>
           </div>
-          <div className="form__control">
-            <label htmlFor="email" className="form__label">
-              Email
-            </label>
-            <input type="text" id="email" name="email" placeholder="Email" />
-            <p className="form__error">Email Error</p>
-          </div>
-          <div className="form__control">
-            <label htmlFor="password" className="form__label">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Password"
-            />
-            <p className="form__error">Password Error</p>
-          </div>
-          <div className="form__submit-wrapper">
-            <button className="form__submit">Login</button>
-          </div>
-          <div className="form__msg-wrapper">
-            <p className="form__msg">
-              Don't have an account?
-              <a className="link" href="/register">
-                Register
-              </a>
-            </p>
-          </div>
-        </form>
+        </div>
       </main>
-
-      <footer className="footer page__footer">
-        <p className="footer__notice">Copyright Haroun Ach 2022</p>
+      <footer className={classNames(styles.page__footer, "footer")}>
+        <p className={classNames(styles.footer__notice)}>
+          Copyright Haroun Ach 2022
+        </p>
       </footer>
     </div>
   );
