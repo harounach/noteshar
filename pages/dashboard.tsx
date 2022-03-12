@@ -4,6 +4,7 @@ import classNames from "classnames";
 import styles from "./dashboard.module.scss";
 
 import Appbar from "../components/Appbar/Appbar";
+import Footer from "../components/Footer/Footer";
 import Button from "../components/Button/Button";
 
 const Dashboard: NextPage = () => {
@@ -177,9 +178,7 @@ const Dashboard: NextPage = () => {
           </div>
         </div>
       </main>
-      <footer className={classNames("footer", styles.page__footer)}>
-        <p className="footer__notice">Copyright Haroun Ach 2022</p>
-      </footer>
+      <Footer customClasses={styles.page__footer} />
     </div>
   );
 };
