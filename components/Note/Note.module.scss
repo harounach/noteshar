@@ -1,0 +1,55 @@
+@use "../../styles/abstracts/variables" as vars;
+
+// note
+.note {
+  width: 700px;
+  background-color: #fff;
+  padding: 1rem 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  // note__row
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // note__title
+  &__title {
+    color: vars.$primary;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  // note__date
+  &__date {
+    color: vars.$secondary;
+  }
+
+  // note__description
+  &__description {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  // note__createdby
+  &__createdby {
+    color: #000;
+  }
+
+  // note__username
+  &__username {
+    color: vars.$primary;
+  }
+
+  // note__actions
+  &__actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  // note__btn
+  &__btn {
+    color: #000;
+  }
+}
