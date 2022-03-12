@@ -5,6 +5,7 @@ import classNames from "classnames";
 import styles from "./register.module.scss";
 
 import Appbar from "../components/Appbar/Appbar";
+import Footer from "../components/Footer/Footer";
 import Button from "../components/Button/Button";
 
 const Register: NextPage = () => {
@@ -101,11 +102,7 @@ const Register: NextPage = () => {
           </div>
         </div>
       </main>
-      <footer className={classNames(styles.page__footer, "footer")}>
-        <p className={classNames(styles.footer__notice)}>
-          Copyright Haroun Ach 2022
-        </p>
-      </footer>
+      <Footer customClasses={styles.page__footer} />
     </div>
   );
 };
