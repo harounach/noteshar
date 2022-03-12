@@ -6,6 +6,7 @@ import styles from "./dashboard.module.scss";
 import Appbar from "../components/Appbar/Appbar";
 import Footer from "../components/Footer/Footer";
 import Button from "../components/Button/Button";
+import NoteList from "../components/NoteList/NoteList";
 
 const Dashboard: NextPage = () => {
   const logoStyles = {
@@ -79,103 +80,7 @@ const Dashboard: NextPage = () => {
               </div>
             </form>
           </div>
-          <div className="notes">
-            {/* Note 1 */}
-            <div className="note">
-              <div className="note__row">
-                <span className="note__title">Note Title by Username</span>
-                <span className="note__date">06/03/2022</span>
-              </div>
-
-              <div className="note__row">
-                <p className="note__description">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Voluptatum natus quis aliquid blanditiis neque? Tenetur dolor
-                  et architecto odio debitis.
-                </p>
-              </div>
-              <div className="note__row">
-                <span className="note__createdby">
-                  Created By <span className="note__username">UserName</span>
-                </span>
-                <div className="note__actions">
-                  <button className="note__btn btn btn--icon-btn">
-                    <i className="btn__icon fa-solid fa-thumbs-down"></i>
-                  </button>
-                  <button className="note__btn btn btn--icon-btn">
-                    <i className="btn__icon fa-solid fa-thumbs-up"></i>
-                  </button>
-                  <button className="note__btn btn btn--icon-btn">
-                    <i className="btn__icon fa-solid fa-share-nodes"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Note 2 */}
-            <div className="note">
-              <div className="note__row">
-                <span className="note__title">Note Title by Username</span>
-                <span className="note__date">06/03/2022</span>
-              </div>
-
-              <div className="note__row">
-                <p className="note__description">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Voluptatum natus quis aliquid blanditiis neque? Tenetur dolor
-                  et architecto odio debitis.
-                </p>
-              </div>
-              <div className="note__row">
-                <span className="note__createdby">
-                  Created By <span className="note__username">UserName</span>
-                </span>
-                <div className="note__actions">
-                  <button className="note__btn btn btn--icon-btn">
-                    <i className="btn__icon fa-solid fa-thumbs-down"></i>
-                  </button>
-                  <button className="note__btn btn btn--icon-btn">
-                    <i className="btn__icon fa-solid fa-thumbs-up"></i>
-                  </button>
-                  <button className="note__btn btn btn--icon-btn">
-                    <i className="btn__icon fa-solid fa-share-nodes"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Note 3 */}
-            <div className="note">
-              <div className="note__row">
-                <span className="note__title">Note Title by Username</span>
-                <span className="note__date">06/03/2022</span>
-              </div>
-
-              <div className="note__row">
-                <p className="note__description">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Voluptatum natus quis aliquid blanditiis neque? Tenetur dolor
-                  et architecto odio debitis.
-                </p>
-              </div>
-              <div className="note__row">
-                <span className="note__createdby">
-                  Created By <span className="note__username">UserName</span>
-                </span>
-                <div className="note__actions">
-                  <button className="note__btn btn btn--icon-btn">
-                    <i className="btn__icon fa-solid fa-thumbs-down"></i>
-                  </button>
-                  <button className="note__btn btn btn--icon-btn">
-                    <i className="btn__icon fa-solid fa-thumbs-up"></i>
-                  </button>
-                  <button className="note__btn btn btn--icon-btn">
-                    <i className="btn__icon fa-solid fa-share-nodes"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <NoteList />
         </div>
       </main>
       <Footer customClasses={styles.page__footer} />
