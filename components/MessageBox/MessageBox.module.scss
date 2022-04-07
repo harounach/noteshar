@@ -1,0 +1,30 @@
+@use "../../styles/abstracts/variables" as vars;
+
+// message-box
+.message-box {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 0.25rem solid transparent;
+  border-right: 0.25rem solid transparent;
+  // message-box--info
+  &--info {
+    color: vars.$info-color;
+    background-color: vars.$info-bg-color;
+    border-left-color: vars.$info-color;
+    border-right-color: vars.$info-color;
+  }
+  // message-box--danger
+  &--danger {
+    color: vars.$danger-color;
+    background-color: vars.$danger-bg-color;
+    border-left-color: vars.$danger-color;
+    border-right-color: vars.$danger-color;
+  }
+  // message-box__text
+  &__text {
+    font-size: 1.125rem;
+  }
+}

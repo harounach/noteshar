@@ -1,5 +1,8 @@
+import { SyntheticEvent, useState } from "react";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 import Head from "next/head";
+import { useMutation } from "@apollo/client";
 import classNames from "classnames";
 import styles from "./profile.module.scss";
 
@@ -7,7 +10,54 @@ import Appbar from "../components/Appbar/Appbar";
 import Footer from "../components/Footer/Footer";
 import Button from "../components/Button/Button";
 
-const Profile: NextPage = () => {
+import { useLoggedInUser, useIsLoggedIn } from "../lib/authHook";
+
+import { useAppSelector, useAppDispatch } from "../lib/store/hooks";
+import {
+  selectUsername,
+  deleteUser,
+} from "../lib/store/features/user/userSlice";
+import { DELETE_ACCOUNT } from "../graphql/operations/mutation";
+
+interface Props {}
+
+const Profile: NextPage<Props> = ({}) => {
+  // next router
+  const router = useRouter();
+
+  // user status
+  useLoggedInUser(router);
+
+  // user status
+  const isLoggedIn = useIsLoggedIn();
+
+  // Get username
+  const username = useAppSelector(selectUsername);
+
+  const dispatch = useAppDispatch();
+
+  // notification state
+  const [notification, setNotification] = useState(
+    "This Delete All Your Notes"
+  );
+
+  // Delete account mutation
+  const [deleteAccount] = useMutation(DELETE_ACCOUNT, {
+    onCompleted: (data) => {
+      if (data.deleteAccount.success) {
+        dispatch(deleteUser());
+        router.replace("/");
+      }
+      setNotification(data.deleteAccount.message);
+    },
+  });
+
+  // handle submit
+  const handleSubmit = (evt: SyntheticEvent) => {
+    evt.preventDefault();
+    deleteAccount();
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -17,74 +67,24 @@ const Profile: NextPage = () => {
       </Head>
 
       {/* Appbar */}
-      <Appbar customClasses={classNames(styles.page__header, "container")} />
+      <Appbar
+        customClasses={classNames(styles.page__header, "container")}
+        username={username}
+        isLoggedIn={isLoggedIn}
+      />
 
       <main className={classNames(styles.page__main, "main")}>
         <div className="container">
-          <h1 className="title">Username Profile</h1>
+          <h1 className="title">{`${username} Profile`}</h1>
           <div className={classNames(styles.page__center)}>
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
               <div className="form__section">
-                <h2 className="form__title">Login</h2>
+                <h2 className="form__title">Profile</h2>
               </div>
-              <div className="form__section input-control">
-                <label htmlFor="username" className="input-control__label">
-                  Username
-                </label>
-                <input
-                  className="input-control__input"
-                  type="text"
-                  id="username"
-                  name="username"
-                  placeholder="Username"
-                />
-                <p className="input-control__error">UserName Error</p>
-              </div>
-              <div className="form__section input-control">
-                <label htmlFor="email" className="input-control__label">
-                  Email
-                </label>
-                <input
-                  className="input-control__input"
-                  type="text"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                />
-                <p className="input-control__error">Email Error</p>
-              </div>
-              <div className="form__section input-control">
-                <label htmlFor="passwordOld" className="input-control__label">
-                  Old Password
-                </label>
-                <input
-                  className="input-control__input"
-                  type="password"
-                  id="passwordOld"
-                  name="passwordOld"
-                  placeholder="Old Password"
-                />
-                <p className="input-control__error">Password Error</p>
-              </div>
-              <div className="form__section input-control">
-                <label htmlFor="passwordNew" className="input-control__label">
-                  New Password
-                </label>
-                <input
-                  className="input-control__input"
-                  type="password"
-                  id="passwordNew"
-                  name="passwordNew"
-                  placeholder="New Password"
-                />
-                <p className="input-control__error">
-                  Password Confirmation Error
+              <div className="form__section">
+                <p className="form__notification form__notification--danger">
+                  {notification}
                 </p>
-              </div>
-              <div className="form__section">
-                <Button customClasses={classNames(styles.form__submit)}>
-                  Update Account
-                </Button>
               </div>
               <div className="form__section">
                 <Button

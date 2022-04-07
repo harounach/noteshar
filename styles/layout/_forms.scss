@@ -22,6 +22,16 @@
     text-align: center;
   }
 
+  // form__notification
+  &__notification {
+    color: vars.$primary;
+    // form__notification
+
+    &--danger {
+      color: vars.$error;
+    }
+  }
+
   // form__submit
   &__submit {
   }
@@ -82,6 +92,5 @@
   // input-control__error
   &__error {
     color: vars.$error;
-    display: none;
   }
 }

@@ -8,6 +8,7 @@ interface Props {
   iconType?: string;
   url?: string;
   customClasses?: string;
+  onClick?: () => void;
 }
 
 const Button: React.FC<Props> = ({
@@ -16,6 +17,7 @@ const Button: React.FC<Props> = ({
   url,
   customClasses,
   children,
+  onClick,
 }) => {
   const classes = classNames(styles.btn, customClasses, {
     [styles["btn--icon-btn"]]: variant === "icon",
@@ -37,7 +39,12 @@ const Button: React.FC<Props> = ({
       </Link>
     );
   } else {
-    buttonView = <button className={classes}> {buttonContent} </button>;
+    buttonView = (
+      <button className={classes} onClick={onClick}>
+        {" "}
+        {buttonContent}{" "}
+      </button>
+    );
   }
 
   // render button
