@@ -2,8 +2,8 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import classNames from "classnames";
-import { from, useApolloClient, useQuery, HttpLink } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
+import { useApolloClient, useQuery } from "@apollo/client";
+
 import styles from "./dashboard.module.scss";
 
 import Appbar from "../../components/Appbar/Appbar";
@@ -23,8 +23,6 @@ import {
   selectUserId,
   selectToken,
 } from "../../lib/store/features/user/userSlice";
-import { createAuthLink } from "../../lib/apollo";
-import { useEffect } from "react";
 
 interface Props {}
 
