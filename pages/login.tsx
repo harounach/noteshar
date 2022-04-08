@@ -169,7 +169,7 @@ const Login: NextPage = () => {
               </div>
               <div className="form__section">
                 <p className="form__msg">
-                  Don't have an account?{" "}
+                  {"Don't have an account? "}
                   <Link href="/register">
                     <a>Register</a>
                   </Link>
